@@ -15,7 +15,7 @@ class Travertine
   # An +Array+ of +Arrays+, where each inner array contains the tiles for a given zoom level. The first +Array+ will have 1 tile, for zoom level 0. The second will have 4 for zoom level 1, and so on.
   def self.cut_tiles(img, max_zoom, tile_size = DEFAULT_TILE_SIZE)
     tile_sets = []
-    (0..max_zoom).collect.reverse.each do |zoom|
+    (0..max_zoom).to_a.reverse.each do |zoom|
       tiles = []
       resize_to_zoom_level(img, zoom, tile_size)
       tile_coordinates_for_zoom(zoom).each do |x,y|
